@@ -27,7 +27,7 @@ public class Account extends JFrame implements ActionListener {
 	private JButton nine;
 
 	public Account() {
-
+		
 		        psw = new javax.swing.JPasswordField();
 		        zero = new javax.swing.JButton();
 		        zero.addActionListener(this);
@@ -54,7 +54,7 @@ public class Account extends JFrame implements ActionListener {
 		        jbConfirm = new javax.swing.JButton();
 		        jbConfirm.addActionListener(this);
 		        setLocationRelativeTo(null);
-
+		        setTitle("Account");
 		        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
 		        zero.setText("0");

@@ -10,19 +10,19 @@ import javax.swing.JTextField;
 
 import entities.profile.Account_profile;
 
-public class Deposit extends JFrame implements ActionListener {
+public class Withdraw extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	Account_profile ap = new Account_profile(8000.00);
 	private JTextField balance;
-	private JTextField deposit;
+	private JTextField withdraw;
 	private JButton confirm;
 	private JLabel text_balance;
 	private JLabel text_deposit;
 
-	public Deposit() {
+	public Withdraw() {
 
 		balance = new javax.swing.JTextField();
-		deposit = new javax.swing.JTextField();
+		withdraw = new javax.swing.JTextField();
 		confirm = new javax.swing.JButton();
 		confirm.addActionListener(this);
 		text_balance = new javax.swing.JLabel();
@@ -38,7 +38,7 @@ public class Deposit extends JFrame implements ActionListener {
 		balance.setText(String.valueOf(String.format("%.2f", ap.getCash())));
 		balance.setEnabled(false);
 		text_deposit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-		text_deposit.setText("how much money you will deposit?");
+		text_deposit.setText("how much money you will withdraw?");
 		setTitle("Deposit");
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -56,7 +56,7 @@ public class Deposit extends JFrame implements ActionListener {
 								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 281,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 286,
+										.addComponent(withdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 286,
 												javax.swing.GroupLayout.PREFERRED_SIZE))
 								.addGap(49, 49, 49))
 				.addGroup(layout.createSequentialGroup().addGap(174, 174, 174)
@@ -72,7 +72,7 @@ public class Deposit extends JFrame implements ActionListener {
 										javax.swing.GroupLayout.PREFERRED_SIZE))
 						.addGap(77, 77, 77)
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+								.addComponent(withdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addComponent(text_deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 54,
 										javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -88,10 +88,10 @@ public class Deposit extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == confirm) {
-			Double value= Double.parseDouble(deposit.getText());
+			Double value= Double.parseDouble(withdraw.getText());
 			Bank bank= new Bank();
-			balance.setText(String.valueOf(ap.deposit((value))));
-			deposit.setText("");
+			balance.setText(String.valueOf(ap.withdraw((value))));
+			withdraw.setText("");
 			bank.setVisible(true);
 			
 		}

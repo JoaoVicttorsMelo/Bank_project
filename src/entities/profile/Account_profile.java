@@ -26,20 +26,16 @@ public class Account_profile {
 		return cash;
 	}
 
-	public void setCash(Double cash) {
-		this.cash = cash;
-	}
-
 	public String getCPF() {
 		return CPF;
 	}
 
-	public void deposit(Double cash) {
-		this.cash += cash;
+	public Double deposit(Double cash) {
+		return this.cash += cash;
 	}
 
-	public void withdraw(Double cash) {
-		this.cash = -cash;
+	public Double withdraw(Double cash) {
+		return this.cash -= cash;
 	}
 
 }

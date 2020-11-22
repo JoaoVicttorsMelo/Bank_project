@@ -20,7 +20,7 @@ public class Bank extends JFrame implements ActionListener {
 		Withdraw.addActionListener(this);
 		Account = new javax.swing.JButton();
 		Account.addActionListener(this);
-
+		setTitle("Bank");
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
@@ -66,6 +66,11 @@ public class Bank extends JFrame implements ActionListener {
 			dp.setVisible(true);
 			this.setVisible(false);
 
+		}
+		if(e.getSource()== Withdraw) {
+			Withdraw withdraw= new Withdraw();
+			withdraw.setVisible(true);
+			this.setVisible(false);
 		}
 	}
 }
