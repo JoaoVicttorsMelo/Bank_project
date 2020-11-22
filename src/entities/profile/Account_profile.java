@@ -3,7 +3,7 @@ package entities.profile;
 public class Account_profile {
 	private String name;
 	private Double cash;
-	private String CPF;
+	private String SSN;
 
 	public Account_profile() {
 	}
@@ -12,22 +12,26 @@ public class Account_profile {
 		this.cash = cash;
 	}
 
-	public Account_profile(String name, Double cash, String cPF) {
+	public Account_profile(String name, Double cash, String SSN) {
 		this.name = name;
 		this.cash = cash;
-		CPF = cPF;
+		this.SSN = SSN;
 	}
 
 	public String getName() {
 		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Double getCash() {
 		return cash;
 	}
 
-	public String getCPF() {
-		return CPF;
+	public String getSSN() {
+		return SSN;
 	}
 
 	public Double deposit(Double cash) {

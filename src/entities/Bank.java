@@ -72,5 +72,10 @@ public class Bank extends JFrame implements ActionListener {
 			withdraw.setVisible(true);
 			this.setVisible(false);
 		}
+		if(e.getSource()== Account) {
+			info_Account ia= new info_Account();
+			ia.setVisible(true);
+			this.setVisible(false);
+		}
 	}
 }

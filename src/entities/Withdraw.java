@@ -13,11 +13,13 @@ import entities.profile.Account_profile;
 public class Withdraw extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	Account_profile ap = new Account_profile(8000.00);
+	Bank bank = new Bank();
 	private JTextField balance;
 	private JTextField withdraw;
 	private JButton confirm;
 	private JLabel text_balance;
 	private JLabel text_deposit;
+	private JButton back;
 
 	public Withdraw() {
 
@@ -27,19 +29,23 @@ public class Withdraw extends JFrame implements ActionListener {
 		confirm.addActionListener(this);
 		text_balance = new javax.swing.JLabel();
 		text_deposit = new javax.swing.JLabel();
+		back = new javax.swing.JButton();
+		back.addActionListener(this);
 
-		setLocationRelativeTo(null);
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+		balance.setEnabled(false);
 		confirm.setText("Confirm");
 
 		text_balance.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 		text_balance.setText("Your balance:");
-		balance.setText(String.valueOf(String.format("%.2f", ap.getCash())));
-		balance.setEnabled(false);
 		text_deposit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 		text_deposit.setText("how much money you will withdraw?");
-		setTitle("Deposit");
+		setTitle("Withdraw");
+		setLocationRelativeTo(null);
+		back.setText("Back");
+		balance.setText(String.valueOf(String.format("%.2f", ap.getCash())));
+
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,8 +65,11 @@ public class Withdraw extends JFrame implements ActionListener {
 										.addComponent(withdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 286,
 												javax.swing.GroupLayout.PREFERRED_SIZE))
 								.addGap(49, 49, 49))
-				.addGroup(layout.createSequentialGroup().addGap(174, 174, 174)
-						.addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 179,
+				.addGroup(layout.createSequentialGroup().addGap(96, 96, 96)
+						.addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(59, 59, 59)
+						.addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,23 +86,28 @@ public class Withdraw extends JFrame implements ActionListener {
 								.addComponent(text_deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 54,
 										javax.swing.GroupLayout.PREFERRED_SIZE))
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-						.addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
 						.addContainerGap()));
 
 		pack();
-
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == confirm) {
-			Double value= Double.parseDouble(withdraw.getText());
-			Bank bank= new Bank();
+			Double value = Double.parseDouble(withdraw.getText());
 			balance.setText(String.valueOf(ap.withdraw((value))));
 			withdraw.setText("");
 			bank.setVisible(true);
-			
+
+		}
+		if (e.getSource() == back) {
+			this.setVisible(false);
+			bank.setVisible(true);
 		}
 
 	}
