@@ -11,7 +11,7 @@ import javax.swing.JPasswordField;
 public class Account extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private String Password = "031085";
+	private String Password = "123";
 	private JPasswordField psw;
 	private JButton jbConfirm;
 	private JButton Del;

@@ -22,6 +22,7 @@ public class Bank extends JFrame implements ActionListener {
 		Account.addActionListener(this);
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 
 		Deposit.setText("DEPOSIT");
 
@@ -61,7 +62,9 @@ public class Bank extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == Deposit) {
-			
+			Deposit dp= new Deposit();
+			dp.setVisible(true);
+			this.setVisible(false);
 
 		}
 	}

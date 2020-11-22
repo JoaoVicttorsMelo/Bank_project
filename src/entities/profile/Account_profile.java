@@ -8,7 +8,10 @@ public class Account_profile {
 	public Account_profile() {
 	}
 
-	
+	public Account_profile(Double cash) {
+		this.cash = cash;
+	}
+
 	public Account_profile(String name, Double cash, String cPF) {
 		this.name = name;
 		this.cash = cash;
@@ -23,17 +26,20 @@ public class Account_profile {
 		return cash;
 	}
 
+	public void setCash(Double cash) {
+		this.cash = cash;
+	}
+
 	public String getCPF() {
 		return CPF;
 	}
-	
-	public Double deposit(Double money) {
-		return cash+money;
+
+	public void deposit(Double cash) {
+		this.cash += cash;
 	}
-	
-	public Double withdraw(Double money) {
-		return cash-money;
+
+	public void withdraw(Double cash) {
+		this.cash = -cash;
 	}
-	
 
 }
