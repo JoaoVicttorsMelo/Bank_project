@@ -1,20 +1,16 @@
 package entities;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.border.EmptyBorder;
 
 public class Account extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel panel;
 	private String Password = "1234";
 	private JPasswordField psw;
 	private JButton jbConfirm;
@@ -22,7 +18,7 @@ public class Account extends JFrame implements ActionListener {
 	private JButton zero;
 	private JButton one;
 	private JButton two;
-	private JButton thre;
+	private JButton three;
 	private JButton four;
 	private JButton five;
 	private JButton six;
@@ -31,51 +27,120 @@ public class Account extends JFrame implements ActionListener {
 	private JButton nine;
 
 	public Account() {
-		zero = new JButton("0");
-		zero.addActionListener(this);
-		one = new JButton("1");
-		one.addActionListener(this);
-		two = new JButton("2");
-		two.addActionListener(this);
-		thre = new JButton("3");
-		thre.addActionListener(this);
-		four = new JButton("4");
-		four.addActionListener(this);
-		five = new JButton("5");
-		five.addActionListener(this);
-		six = new JButton("6");
-		six.addActionListener(this);
-		seven = new JButton("7");
-		seven.addActionListener(this);
-		eight = new JButton("8");
-		eight.addActionListener(this);
-		nine = new JButton("9");
-		nine.addActionListener(this);
 
-		Del = new JButton("Delet");
-		Del.addActionListener(this);
-		jbConfirm = new JButton("Confirm");
-		jbConfirm.addActionListener(this);
-		psw = new JPasswordField();
+		        psw = new javax.swing.JPasswordField();
+		        zero = new javax.swing.JButton();
+		        zero.addActionListener(this);
+		        one = new javax.swing.JButton();
+		        one.addActionListener(this);
+		        two = new javax.swing.JButton();
+		        two.addActionListener(this);
+		        three = new javax.swing.JButton();
+		        three.addActionListener(this);
+		        four = new javax.swing.JButton();
+		        four.addActionListener(this);
+		        five = new javax.swing.JButton();
+		        five.addActionListener(this);
+		        six = new javax.swing.JButton();
+		        six.addActionListener(this);
+		        seven = new javax.swing.JButton();
+		        seven.addActionListener(this);
+		        eight = new javax.swing.JButton();
+		        eight.addActionListener(this);
+		        nine = new javax.swing.JButton();
+		        nine.addActionListener(this);
+		        Del = new javax.swing.JButton();
+		        Del.addActionListener(this);
+		        jbConfirm = new javax.swing.JButton();
+		        jbConfirm.addActionListener(this);
 
-		setSize(700, 550);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setTitle("Login");
+		        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-		panel = new JPanel();
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(panel);
-		panel.setLayout(null);
-		panel.setBackground(Color.cyan);
+		        zero.setText("0");
+		    
+		        one.setText("1");
 
-		jbConfirm.setBounds(500, 350, 90, 90);
-		Del.setBounds(400, 350, 90, 90);
-		psw.setBounds(100, 50, 490, 40);
+		        two.setText("2");
 
-		panel.add(psw);
-		panel.add(Del);
-		panel.add(jbConfirm);
+		        three.setText("3");
+
+		        four.setText("4");
+
+		        five.setText("5");
+
+		        six.setText("6");
+
+		        seven.setText("7");
+
+		        eight.setText("8");
+
+		        nine.setText("9");
+
+		        Del.setText("DEL");
+
+		        jbConfirm.setText("CONFIRM");
+
+		        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		        getContentPane().setLayout(layout);
+		        layout.setHorizontalGroup(
+		            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		            .addGroup(layout.createSequentialGroup()
+		                .addGap(58, 58, 58)
+		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+		                    .addComponent(jbConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		                    .addComponent(psw)
+		                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+		                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+		                            .addComponent(four, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+		                            .addComponent(zero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		                            .addComponent(eight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+		                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+		                            .addComponent(one, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+		                            .addComponent(five, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		                            .addComponent(nine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+		                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		                            .addGroup(layout.createSequentialGroup()
+		                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+		                                    .addComponent(two, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+		                                    .addComponent(six, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+		                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		                                    .addComponent(seven, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+		                                    .addComponent(three, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+		                            .addComponent(Del, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+		                .addGap(70, 70, 70))
+		        );
+		        layout.setVerticalGroup(
+		            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		            .addGroup(layout.createSequentialGroup()
+		                .addGap(31, 31, 31)
+		                .addComponent(psw, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+		                    .addComponent(zero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(one, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(two, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(three, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+		                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+		                    .addComponent(four, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(five, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(six, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(seven, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+		                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+		                    .addComponent(eight, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(nine, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    .addComponent(Del, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+		                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+		                .addComponent(jbConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                .addContainerGap(13, Short.MAX_VALUE))
+		        );
+
+		        pack();
+		    // </editor-fold>
 
 	}
 
@@ -97,43 +162,43 @@ public class Account extends JFrame implements ActionListener {
 			psw.setText(text);
 		}
 		if (e.getSource() == zero) {
-			psw.setText("0");
+			psw.setText(psw.getText() + "0");
 
 		}
 		if (e.getSource() == one) {
-			psw.setText("1");
+			psw.setText(psw.getText() + "1");
 
 		}
 		if (e.getSource() == two) {
-			psw.setText("2");
+			psw.setText(psw.getText() + "2");
 
 		}
-		if (e.getSource() == thre) {
-			psw.setText("3");
+		if (e.getSource() == three) {
+			psw.setText(psw.getText() + "3");
 
 		}
 		if (e.getSource() == four) {
-			psw.setText("4");
+			psw.setText(psw.getText() + "4");
 
 		}
 		if (e.getSource() == five) {
-			psw.setText("5");
+			psw.setText(psw.getText() + "5");
 
 		}
 		if (e.getSource() == six) {
-			psw.setText("6");
+			psw.setText(psw.getText() + "6");
 
 		}
 		if (e.getSource() == seven) {
-			psw.setText("7");
+			psw.setText(psw.getText() + "7");
 
 		}
 		if (e.getSource() == eight) {
-			psw.setText("8");
+			psw.setText(psw.getText() + "8");
 
 		}
 		if (e.getSource() == nine) {
-			psw.setText("9");
+			psw.setText(psw.getText() + "9");
 
 		}
 
