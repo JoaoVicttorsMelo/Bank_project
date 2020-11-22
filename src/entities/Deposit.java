@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import entities.profile.Account_profile;
@@ -17,9 +18,10 @@ public class Deposit extends JFrame implements ActionListener {
 	private JTextField balance;
 	private JTextField deposit;
 	private JButton confirm;
-	private JButton back;
+	private JButton edit;
 	private JLabel text_balance;
 	private JLabel text_deposit;
+	private JButton Update;
 
 	public Deposit() {
 
@@ -29,22 +31,27 @@ public class Deposit extends JFrame implements ActionListener {
 		confirm.addActionListener(this);
 		text_balance = new javax.swing.JLabel();
 		text_deposit = new javax.swing.JLabel();
-		back = new javax.swing.JButton();
-		back.addActionListener(this);
-		setTitle("Deposit");
+		edit = new javax.swing.JButton();
+		edit.addActionListener(this);
+		Update = new javax.swing.JButton();
+		Update.addActionListener(this);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setTitle("Deposit");
 		balance.setEnabled(false);
-		confirm.setText("Confirm");
-		balance.setText(String.valueOf(String.format("%.2f", ap.getCash())));
 
+		confirm.setText("Confirm");
+		deposit.setEnabled(false);
 		text_balance.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 		text_balance.setText("Your balance:");
-
+		balance.setText(String.valueOf(String.format("%.2f",ap.getCash())));
 		text_deposit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 		text_deposit.setText("how much money you will deposit?");
 
-		back.setText("Back");
+		edit.setText("edit");
+
+		Update.setText("Update");
+		Update.setEnabled(false);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -65,11 +72,14 @@ public class Deposit extends JFrame implements ActionListener {
 										.addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 286,
 												javax.swing.GroupLayout.PREFERRED_SIZE))
 								.addGap(49, 49, 49))
-				.addGroup(layout.createSequentialGroup().addGap(96, 96, 96)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
 						.addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(59, 59, 59)
-						.addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
+						.addGap(30, 30, 30)
+						.addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 178,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(30, 30, 30)
+						.addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 90,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,12 +95,14 @@ public class Deposit extends JFrame implements ActionListener {
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addComponent(text_deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 54,
 										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+						.addGap(31, 31, 31)
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addContainerGap()));
 
 		pack();
@@ -99,17 +111,28 @@ public class Deposit extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == confirm) {
+			bank.setVisible(true);
+			this.setVisible(false);
+
+		}
+		if (e.getSource() == edit) {
+			Update.setEnabled(true);
+			edit.setEnabled(false);
+			deposit.setEnabled(true);
+			confirm.setEnabled(false);
+		}
+
+		if (e.getSource() == Update) {
+			confirm.setEnabled(true);
+			edit.setEnabled(true);
+			deposit.setEnabled(false);
+			Update.setEnabled(false);
 			Double value = Double.parseDouble(deposit.getText());
 			balance.setText(String.valueOf(ap.deposit((value))));
+			}
 			deposit.setText("");
-			bank.setVisible(true);
 
 		}
-		if (e.getSource() == back) {
-			this.setVisible(false);
-			bank.setVisible(true);
-		}
 
-	}
 
 }
