@@ -11,7 +11,7 @@ import javax.swing.JPasswordField;
 public class Account extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private String Password = "1234";
+	private String Password = "031085";
 	private JPasswordField psw;
 	private JButton jbConfirm;
 	private JButton Del;
@@ -53,6 +53,7 @@ public class Account extends JFrame implements ActionListener {
 		        Del.addActionListener(this);
 		        jbConfirm = new javax.swing.JButton();
 		        jbConfirm.addActionListener(this);
+		        setLocationRelativeTo(null);
 
 		        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
