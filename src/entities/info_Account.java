@@ -121,7 +121,7 @@ public class info_Account extends JFrame implements ActionListener {
 						.addComponent(finish_Edit, javax.swing.GroupLayout.DEFAULT_SIZE,
 								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				.addGap(28, 28, 28)));
-
+		setUndecorated(true);
 		pack();
 	}
 
@@ -133,7 +133,7 @@ public class info_Account extends JFrame implements ActionListener {
 			edit.setEnabled(false);
 			finish_Edit.setEnabled(true);
 		}
-		
+
 		if (e.getSource() == finish_Edit) {
 			confirm.setEnabled(true);
 			edit.setEnabled(true);
@@ -141,11 +141,11 @@ public class info_Account extends JFrame implements ActionListener {
 			finish_Edit.setEnabled(false);
 			ap.setName(field_Name.getName());
 		}
-		if(e.getSource()== confirm) {
-			Bank bank= new Bank();
+		if (e.getSource() == confirm) {
+			Bank bank = new Bank();
 			this.setVisible(false);
 			bank.setVisible(true);
-			
+
 		}
 	}
 

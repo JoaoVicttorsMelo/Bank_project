@@ -3,14 +3,17 @@ package entities;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 public class Account extends JFrame implements ActionListener {
-
 	private static final long serialVersionUID = 1L;
+	private ImageIcon image = new ImageIcon(getClass().getResource("plant.jpg"));
+	private JLabel background;
 	private String Password = "123";
 	private JPasswordField psw;
 	private JButton jbConfirm;
@@ -27,8 +30,9 @@ public class Account extends JFrame implements ActionListener {
 	private JButton nine;
 
 	public Account() {
-		
-		        psw = new javax.swing.JPasswordField();
+		background = new JLabel("", image, JLabel.CENTER);
+		background.setBounds(0,2,600,300);
+		psw = new javax.swing.JPasswordField();
 		        zero = new javax.swing.JButton();
 		        zero.addActionListener(this);
 		        one = new javax.swing.JButton();
@@ -56,7 +60,7 @@ public class Account extends JFrame implements ActionListener {
 		        setLocationRelativeTo(null);
 		        setTitle("Account");
 		        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+		        setLayout(null);
 		        zero.setText("0");
 		    
 		        one.setText("1");
@@ -113,6 +117,7 @@ public class Account extends JFrame implements ActionListener {
 		                            .addComponent(Del, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 		                .addGap(70, 70, 70))
 		        );
+		        add(background);
 		        layout.setVerticalGroup(
 		            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 		            .addGroup(layout.createSequentialGroup()
@@ -155,6 +160,7 @@ public class Account extends JFrame implements ActionListener {
 				this.setVisible(false);
 			} else {
 				JOptionPane.showMessageDialog(null, "Your password is wrong!");
+				psw.setText("");
 			}
 		}
 		if (e.getSource() == Del) {

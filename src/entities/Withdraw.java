@@ -2,7 +2,6 @@ package entities;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,7 +23,6 @@ public class Withdraw extends JFrame implements ActionListener {
 	private JButton Update;
 
 	public Withdraw() {
-
 		balance = new javax.swing.JTextField();
 		withdraw = new javax.swing.JTextField();
 		confirm = new javax.swing.JButton();
@@ -45,13 +43,11 @@ public class Withdraw extends JFrame implements ActionListener {
 
 		confirm.setText("Confirm");
 
-		text_balance.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+		text_balance.setFont(new java.awt.Font("Arial", 1, 14));
 		text_balance.setText("Your balance:");
-
-		text_deposit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+		text_deposit.setFont(new java.awt.Font("Arial", 1, 14));
 		text_deposit.setText("how much money you will withdraw?");
-
-		edit.setText("Set");
+		edit.setText("Edit");
 
 		Update.setText("Update");
 		Update.setEnabled(false);
@@ -106,7 +102,7 @@ public class Withdraw extends JFrame implements ActionListener {
 								.addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE,
 										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addContainerGap()));
-
+		setUndecorated(true);
 		pack();
 	}
 
@@ -131,8 +127,8 @@ public class Withdraw extends JFrame implements ActionListener {
 			Update.setEnabled(false);
 			Double value = Double.parseDouble(withdraw.getText());
 			if (value > ap.getCash()) {
-				JOptionPane.showMessageDialog(null,"error");
-			}else {
+				JOptionPane.showMessageDialog(null, "Not enough cash");
+			} else {
 				balance.setText(String.valueOf(ap.withdraw((value))));
 
 			}

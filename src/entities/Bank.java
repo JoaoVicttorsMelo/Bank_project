@@ -3,10 +3,14 @@ package entities;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Bank extends JFrame implements ActionListener {
+	private ImageIcon image = new ImageIcon(getClass().getResource("CODE.jpg"));
+	private JLabel background;
 	private static final long serialVersionUID = 1L;
 	private JButton Account;
 	private JButton Deposit;
@@ -14,7 +18,8 @@ public class Bank extends JFrame implements ActionListener {
 	private JButton quit;
 
 	public Bank() {
-
+		background = new JLabel("", image, JLabel.CENTER);
+		background.setBounds(-10,-10,620,500);
 		Deposit = new javax.swing.JButton();
 		Deposit.addActionListener(this);
         Withdraw = new javax.swing.JButton();
@@ -52,8 +57,9 @@ public class Bank extends JFrame implements ActionListener {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(quit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))   
         );
+        add(background);
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -67,6 +73,7 @@ public class Bank extends JFrame implements ActionListener {
                 .addComponent(quit)
                 .addGap(5, 5, 5))
         );
+		setUndecorated(true);
 
         pack();
 	}
@@ -77,7 +84,6 @@ public class Bank extends JFrame implements ActionListener {
 			Deposit dp= new Deposit();
 			dp.setVisible(true);
 			this.setVisible(false);
-
 		}
 		if(e.getSource()== Withdraw) {
 			Withdraw withdraw= new Withdraw();

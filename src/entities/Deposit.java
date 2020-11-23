@@ -41,14 +41,12 @@ public class Deposit extends JFrame implements ActionListener {
 
 		confirm.setText("Confirm");
 		deposit.setEnabled(false);
-		text_balance.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+		text_balance.setFont(new java.awt.Font("Arial", 1, 14));
 		text_balance.setText("Your balance:");
-		balance.setText(String.valueOf(String.format("%.2f",ap.getCash())));
-		text_deposit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+		balance.setText(String.valueOf(String.format("%.2f", ap.getCash())));
+		text_deposit.setFont(new java.awt.Font("Arial", 1, 14));
 		text_deposit.setText("how much money you will deposit?");
-
-		edit.setText("edit");
-
+		edit.setText("Edit");
 		Update.setText("Update");
 		Update.setEnabled(false);
 
@@ -103,7 +101,7 @@ public class Deposit extends JFrame implements ActionListener {
 								.addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE,
 										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addContainerGap()));
-
+		setUndecorated(true);
 		pack();
 	}
 
@@ -128,10 +126,9 @@ public class Deposit extends JFrame implements ActionListener {
 			Update.setEnabled(false);
 			Double value = Double.parseDouble(deposit.getText());
 			balance.setText(String.valueOf(ap.deposit((value))));
-			}
-			deposit.setText("");
-
 		}
+		deposit.setText("");
 
+	}
 
 }
